@@ -1,0 +1,24 @@
+# --- Cloud LLM clients (free tier) -----------------------------------------
+google-generativeai>=0.8.3
+openai>=1.50.0              # used for Groq's OpenAI-compatible endpoint too
+
+# --- Local GPU-accelerated voice pipeline -----------------------------------
+faster-whisper>=1.0.3       # STT (CTranslate2, CUDA-accelerated)
+kokoro>=0.9.4                # TTS (Kokoro-82M, CUDA-accelerated)
+soundfile>=0.12.1
+sounddevice>=0.5.1
+
+# PyTorch backs both the STT and TTS models. Install the CUDA 12.x build that
+# matches your driver for the RTX 5070 Ti, e.g.:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu124
+# The plain "torch" pin below installs a CPU-only build if you skip that step
+# (everything still works, just slower).
+torch>=2.3.0
+
+# --- Local long-term memory (embeddings) + emotional-state heuristics ------
+sentence-transformers>=3.0.1
+numpy>=1.26.4
+vaderSentiment>=3.3.2
+
+# --- Config ------------------------------------------------------------------
+python-dotenv>=1.0.1
